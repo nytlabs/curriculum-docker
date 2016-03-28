@@ -3,24 +3,26 @@ kind: Deployment
 metadata:
   name: curriculum
 spec:
+  replicas: 1
   template:
+    metadata:
+      labels:
+        name: curriculum
     spec:
-      selector:
-        - app: curriculum
       containers:
-        - name: akamongo
-          image: mongo
-          ports:
-          - containerPort: 27017
-        - name: akaserver
-          image: gcr.io/labcluster-1264/curriculum-server:v1
-          ports:
-          - containerPort: 8080
-        - name: akabeanstalk
-          image: gcr.io/labcluster-1264/curriculum-beanstalk:v1
-          ports:
-          - containerPort: 14711
-        - name: akaworker
-          image: gcr.io/labcluster-1264/curriculum-worker:v2
+      - name: akamongo
+        image: mongo
+        ports:
+        - containerPort: 27017
+      - name: akaserver
+        image: gcr.io/nyt-rnd/curriculum-server:v1
+        ports:
+        - containerPort: 8080
+      - name: akabeanstalk
+        image: gcr.io/nyt-rnd/curriculum-beanstalk:v1
+        ports:
+        - containerPort: 14711
+      - name: akaworker
+        image: gcr.io/nyt-rnd/curriculum-worker:v2
 
   
