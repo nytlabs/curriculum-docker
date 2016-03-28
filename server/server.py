@@ -13,9 +13,9 @@ from handlers.RemoveUserHandler import RemoveUserHandler
 import startDB
 import os
 
-# client = MongoClient(tz_aware=True)
-mongoAddress = os.getenv("AKAMONGO_PORT_27017_TCP_ADDR")
-client = MongoClient(mongoAddress, tz_aware=True)
+client = MongoClient(tz_aware=True)
+#mongoAddress = os.getenv("AKAMONGO_PORT_27017_TCP_ADDR")
+#client = MongoClient(mongoAddress, tz_aware=True)
 db = client.curriculum
 settings = {'debug': True}
 
@@ -37,6 +37,6 @@ application = tornado.web.Application([
 ], db=db, **settings)
 
 if __name__ == "__main__":
-    application.listen(80)
+    application.listen(8080)
     print 'starting server'
     tornado.ioloop.IOLoop.instance().start()

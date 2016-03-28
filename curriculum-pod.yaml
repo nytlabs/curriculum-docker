@@ -15,7 +15,7 @@ spec:
         ports:
         - containerPort: 27017
       - name: akaserver
-        image: gcr.io/nyt-rnd/curriculum-server:v1
+        image: gcr.io/nyt-rnd/curriculum-server:v2
         ports:
         - containerPort: 8080
       - name: akabeanstalk
