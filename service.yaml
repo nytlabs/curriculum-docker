@@ -1,11 +1,11 @@
 apiVersion: v1
-Kind: Service
+kind: Service
 metadata:
   name: curriculum-service
 spec:
   type: LoadBalancer
   selector:
-    name:curriculum
+    name: curriculum
   ports:
   - protocol: TCP
     port: 80

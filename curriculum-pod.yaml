@@ -23,6 +23,6 @@ spec:
         ports:
         - containerPort: 14711
       - name: akaworker
-        image: gcr.io/nyt-rnd/curriculum-worker:v2
+        image: gcr.io/nyt-rnd/curriculum-worker:v1
 
   
