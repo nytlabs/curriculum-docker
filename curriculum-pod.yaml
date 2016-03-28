@@ -1,25 +1,30 @@
 apiVersion: v1
 kind: ReplicationController
 metadata:
-  name: curriculum-backend
+  name: curriculum-backend-v2
 spec:
   replicas: 1
+  selector: 
+    name: curriculum-v2
   template:
+    metadata:
+      labels:
+        name: curriculum-v2
     spec:
       containers:
         - name: akamongo
           image: mongo
           ports:
-            - containerPort:27017
+            - containerPort: 27017
         - name: akaserver
           image: gcr.io/labcluster-1264/curriculum-server:v1
           ports:
-            - containerPort:8080
+            - containerPort: 8080
         - name: akabeanstalk
           image: gcr.io/labcluster-1264/curriculum-beanstalk:v1
           ports:
-            - containerPort:14711
+            - containerPort: 14711
         - name: akaworker
-          image: gcr.io/labcluster-1264/curriculum-worker:v1
+          image: gcr.io/labcluster-1264/curriculum-worker:v2
 
   
